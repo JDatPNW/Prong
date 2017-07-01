@@ -6,7 +6,7 @@ PFont f;  //font for score
 Puck ball = new Puck();
 Players P1 = new Players(); //P1 is left
 Players P2 = new Players(); // P2 is right
-
+Field board = new Field();
 
 void setup() 
 {
@@ -28,18 +28,8 @@ void setup()
 
 void draw() 
 {
-  background(102);
-  stroke(255);
-  line(width/2,0,width/2,360); //center line
-  noFill();
-  ellipse(width/2,height/2,35,35); //midcircle
-  noStroke();
-  fill(150);
-  rect(0,0,25,height); // goal left
-  fill(150);
-  rect(width,0,25,height); //goal right
-
   
+  board.display();
 
     if (start)  //start the game
   {
@@ -50,9 +40,6 @@ void draw()
         start = false;
       }
   }
-  
-
-  
   
   ball.update();
   P1.update();
@@ -139,9 +126,6 @@ void draw()
   ball.display();
   P1.display();
   P2.display();
-  textAlign(CENTER);  //following is score
-  fill(#FFFFFF);
-  textFont(f);
-  text(scoreP2+":"+scoreP1,width/2,60); 
+  board.scoreboard(scoreP1,scoreP2);
   
 }
