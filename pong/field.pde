@@ -1,5 +1,8 @@
 class Field
 {
+  boolean start =true;
+  int scoreP2;
+  int scoreP1;
   void display()
   {
     ellipseMode(RADIUS); //sets calculations from mid
@@ -16,8 +19,56 @@ class Field
     rect(width,0,25,height); //goal right
   }
   
-  void scoreboard(int scoreP2, int scoreP1)
+  // Set the starting position of the shapes
+  void startpositions() //could be somewhere else too
   {
+    ball.xpos = width/2; 
+    ball.ypos = height/2;
+    P1.xpos_stick = 550;
+    P1.ypos_stick = height/2;
+    P2.xpos_stick = 90;
+    P2.ypos_stick = height/2;
+  }
+  
+  void pressStart()
+  {
+    if (start)  //start the game
+    {
+      ball.xpos = width/2; 
+      ball.ypos = height/2;
+        if (keyPressed && (keyCode == SHIFT || key == ' '))
+        {
+          start = false;
+        }
+     }
+  }
+  
+  
+  void scoreboard()
+    {
+      if (ball.xpos-ball.rad <=1) //check for goal by p1
+        {
+          scoreP1++;
+          score = true;
+        }
+      
+      if (ball.xpos+ball.rad >=width-1) // check for goal by p2
+      {
+        scoreP2++;
+        score = true;
+      }
+    
+      if (score)  //reset the puck
+      {
+        ball.xpos = width/2; 
+        ball.ypos = height/2;
+          if (keyPressed && (keyCode == SHIFT || key == ' '))
+          {
+            score = false;
+          }
+    }
+    
+    
   textAlign(CENTER);  //following is score
   fill(#FFFFFF);
   textFont(f);

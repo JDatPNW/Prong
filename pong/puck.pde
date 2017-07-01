@@ -14,12 +14,27 @@ class Puck
   {
       // Update the position of the shape
   xpos = xpos + ( xspeed * xdirection );
-  ypos = ypos + ( yspeed * ydirection );
+    ypos = ypos + ( yspeed * ydirection );
   }
   void display()
   {
     fill(#ff0120);
     ellipse(xpos, ypos, rad, rad); // rendering puck
+  }
+  
+  
+   // Test to see if the shape exceeds the boundaries of the screen
+  // If it does, reverse its direction by multiplying by -1
+  void bordercollision()
+  {
+    if (xpos > width-rad || xpos < rad) 
+    {
+      xdirection *= -1;
+    }
+    if (ypos > height-rad || ypos < rad) 
+    {
+      ydirection *= -1;
+    }
   }
   
 }
