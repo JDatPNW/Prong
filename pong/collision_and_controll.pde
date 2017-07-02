@@ -11,6 +11,7 @@ class Collision
         ball.xdirection = -1;
         ball.xspeed *= 1.05;  //increase x speed upon contact
         ball.yspeed += (P1.yspd_stick*0.1 * (ball.ydirection*P1.ydir_stick)); //in or decrease y speed depending on direction of stick
+        P1.impact = true;
        }       
     //check if coliding with P2, if so move right
     if ((ball.xpos-ball.rad <= P2.xpos_stick+(P2.width_stick) && ball.xpos-ball.rad >= P2.xpos_stick-(P2.width_stick) ) && ball.ypos+ball.rad > P2.ypos_stick-P2.height_stick && ball.ypos-ball.rad < P2.ypos_stick+P2.height_stick)
@@ -18,6 +19,7 @@ class Collision
         ball.xdirection = 1;        
         ball.xspeed *= 1.05;
         ball.yspeed += (P2.yspd_stick*0.1 * (ball.ydirection*P2.ydir_stick));
+        P2.impact = true;
        }
   }
   
@@ -48,7 +50,10 @@ class Collision
       {
         P2.ydir_stick = 1;
       }
-      if (keyPressed && keyCode == RIGHT)
+    if (keyPressed && keyCode == RIGHT)
       delay (150);
+      
+    if (key == 'p')  
+      state = PAUSE;
   }
 }

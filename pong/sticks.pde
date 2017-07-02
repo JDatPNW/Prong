@@ -7,7 +7,8 @@ class Players
   float yspd_stick = 3.5; // y speed of sticks, positive is down negative is up
   int height_stick = height/6; // half of the height of the stick
   int width_stick = width/60; // width of stick
-  int asd = 2;
+  int blink = 2;
+  boolean impact;
   
   
   void display()
@@ -15,7 +16,19 @@ class Players
     rectMode(RADIUS); //same as above
     height_stick = height/6; // half of the height of the stick
     width_stick = width/60;
-    fill(#0000FF);
+    stroke(#0000FF);
+    if (impact)
+    {
+      fill(#0000FF);
+      blink++;
+      if(blink == 3)
+      {
+        impact = false;
+        blink=0;
+      }
+    }
+    else
+    fill(#0000FF,40);
     rect(xpos_stick,ypos_stick,width_stick,height_stick); //render P2 stick
   }
   

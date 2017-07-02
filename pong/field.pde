@@ -70,9 +70,8 @@ class Field
         }
     }
     
-    
   textAlign(CENTER);  //following is score
   fill(#FFFFFF);
-  textFont(f);
-  text(scoreP2+":"+scoreP1,width/2,60); }
+  textFont(f,height/10);
+  text(scoreP2+":"+scoreP1,width/2,height/10); }
 }

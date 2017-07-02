@@ -3,7 +3,6 @@ class Puck
   int rad;        // Width of the shape
   float xpos, ypos;    // Starting position of shape    
   
-  
   float default_xspeed=3.8;
   float default_yspeed = 3.0;
   float xspeed = default_xspeed;  // Speed of the shape
@@ -22,7 +21,8 @@ class Puck
   void display()
   {
     rad  = height/15;
-    fill(#ff0120);
+    stroke(#ff0120);
+    fill(#ff0120,40);
     ellipse(xpos, ypos, rad, rad); // rendering puck
   }
   
