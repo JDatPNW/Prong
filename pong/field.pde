@@ -20,7 +20,7 @@ class Field
   }
   
   // Set the starting position of the shapes
-  void startpositions() //could be somewhere else too
+  void setup() //could be somewhere else too
   {
     ball.xpos = width/2; 
     ball.ypos = height/2;

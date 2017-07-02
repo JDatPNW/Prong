@@ -10,6 +10,11 @@ class Players
   int blink = 2;
   boolean impact;
   
+  void setup()
+  {
+    P1.yspd_stick = height/100; 
+    P2.yspd_stick = height/100;
+  }
   
   void display()
   {
@@ -35,6 +40,7 @@ class Players
   void update()
   {
     //update position player 1 stick
+    P1.yspd_stick = height/100; P2.yspd_stick = height/100;
     xpos_stick = xpos_stick + (xspd_stick * xdir_stick);
     ypos_stick = constrain(ypos_stick + (yspd_stick * ydir_stick),height_stick,height-height_stick); //constrain sets borders
   }

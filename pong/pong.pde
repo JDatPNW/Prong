@@ -15,13 +15,13 @@ Field board = new Field();
 Collision col = new Collision();
 void setup() 
 {
-  size(640, 360); // size of playing field (0|0) is in top left
+  size(1920, 1080); // size of playing field (0|0) is in top left
   surface.setResizable(true);
   frameRate(120); //fps
   f = createFont("Arial",height/10,true); // font for score
   img = loadImage("../logo/Prong.png");
-  board.startpositions();
   imageMode(CENTER);
+  ball.setup();
 }
 
 void draw() 
@@ -72,6 +72,6 @@ void draw()
         state = GAME;
       break;
   }
-  println(ball.xspeed, ball.yspeed);
-  
+  println("ball.x:"+ball.xspeed ,"ball.y:"+ ball.yspeed);
+  println("Pyspd"+P1.yspd_stick);
 }
