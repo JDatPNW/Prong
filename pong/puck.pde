@@ -1,6 +1,6 @@
 class Puck
 {
-  int rad = 25;        // Width of the shape
+  int rad;        // Width of the shape
   float xpos, ypos;    // Starting position of shape    
   
   
@@ -21,6 +21,7 @@ class Puck
   }
   void display()
   {
+    rad  = height/15;
     fill(#ff0120);
     ellipse(xpos, ypos, rad, rad); // rendering puck
   }
