@@ -9,14 +9,14 @@ class Field
     rectMode(RADIUS); //same as above
     background(102);
     stroke(255);
-    line(width/2,0,width/2,360); //center line
+    line(width/2,0,width/2,height); //center line
     noFill();
-    ellipse(width/2,height/2,35,35); //midcircle
+    ellipse(width/2,height/2,height/10,height/10); //midcircle
     noStroke();
     fill(150);
-    rect(0,0,25,height); // goal left
+    rect(0,0,width/30,height); // goal left
     fill(150);
-    rect(width,0,25,height); //goal right
+    rect(width,0,width/30,height); //goal right
   }
   
   // Set the starting position of the shapes
@@ -24,9 +24,9 @@ class Field
   {
     ball.xpos = width/2; 
     ball.ypos = height/2;
-    P1.xpos_stick = 550;
+    P1.xpos_stick = width*0.9;
     P1.ypos_stick = height/2;
-    P2.xpos_stick = 90;
+    P2.xpos_stick = width*0.1;
     P2.ypos_stick = height/2;
   }
   
@@ -62,10 +62,12 @@ class Field
       {
         ball.xpos = width/2; 
         ball.ypos = height/2;
-          if (keyPressed && (keyCode == SHIFT || key == ' '))
-          {
-            score = false;
-          }
+        ball.xspeed = ball.default_xspeed;
+        ball.yspeed = ball.default_yspeed;
+        if (keyPressed && (keyCode == SHIFT || key == ' '))
+        {
+          score = false;
+        }
     }
     
     

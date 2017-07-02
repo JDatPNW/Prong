@@ -1,5 +1,10 @@
 int scoreP2, scoreP1;
 boolean score;
+int state = 2; //The current state
+final int MAIN_MENU = 0;
+final int GAME_MENU = 1;
+final int GAME = 2;
+final int PAUSE = 3;
 
 PFont f;  //font for score
 Puck ball = new Puck();
@@ -10,6 +15,7 @@ Collision col = new Collision();
 void setup() 
 {
   size(640, 360); // size of playing field (0|0) is in top left
+  surface.setResizable(true);
   frameRate(120); //fps
   f = createFont("Arial",36,true); // font for score
   board.startpositions();
@@ -18,22 +24,35 @@ void setup()
 
 void draw() 
 {
-  
-  board.display();
-  board.pressStart(); 
-  ball.update();
-  P1.update();
-  P2.update();
-  
-  //check collision and controls
-  ball.bordercollision();
-  col.playercollision();
-  col.controll();
-    
-  // Draw the shape
-  ball.display();
-  P1.display();
-  P2.display();
-  board.scoreboard();
+  switch (state)
+  {
+    case MAIN_MENU:
+      break;
+    case GAME_MENU:
+      break;
+    case GAME:
+      board.display();
+      board.pressStart(); 
+      ball.update();
+      P1.update();
+      P2.update();
+      
+      //check collision and controls
+      ball.bordercollision();
+      col.playercollision();
+      col.controll();
+        
+      // Draw the shape
+      ball.display();
+      P1.display();
+      P2.display();
+      board.scoreboard();
+      
+      break;
+      
+    case PAUSE:
+      break;
+  }
+  println(ball.xspeed, ball.yspeed);
   
 }

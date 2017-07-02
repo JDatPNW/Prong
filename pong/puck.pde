@@ -3,8 +3,11 @@ class Puck
   int rad = 25;        // Width of the shape
   float xpos, ypos;    // Starting position of shape    
   
-  float xspeed = 2.8;  // Speed of the shape
-  float yspeed = 2.2;  // Speed of the shape
+  
+  float default_xspeed=3.8;
+  float default_yspeed = 3.0;
+  float xspeed = default_xspeed;  // Speed of the shape
+  float yspeed = default_yspeed;  // Speed of the shape
   
   
   int xdirection = 1;  // Left or Right
@@ -13,7 +16,7 @@ class Puck
   void update()
   {
       // Update the position of the shape
-  xpos = xpos + ( xspeed * xdirection );
+    xpos = xpos + ( xspeed * xdirection );
     ypos = ypos + ( yspeed * ydirection );
   }
   void display()
