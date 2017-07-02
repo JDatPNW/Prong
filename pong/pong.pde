@@ -34,8 +34,8 @@ void draw()
       board.display();
       board.pressStart(); 
       ball.update();
-      P1.update();
-      P2.update();
+      P1.update(); P1.xpos_stick = width*0.9;
+      P2.update(); P2.xpos_stick = width*0.1;
       
       //check collision and controls
       ball.bordercollision();

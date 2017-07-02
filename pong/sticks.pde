@@ -18,7 +18,7 @@ class Players
   void update()
   {
     //update position player 1 stick
-    //xpos_stick = xpos_stick + (xspd_stick * xdir_stick);
+    xpos_stick = xpos_stick + (xspd_stick * xdir_stick);
     ypos_stick = constrain(ypos_stick + (yspd_stick * ydir_stick),rad_stick,height-rad_stick); //constrain sets borders
   }
   
