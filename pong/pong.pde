@@ -5,7 +5,6 @@ final int MAIN_MENU = 0;
 final int GAME_MENU = 1;
 final int GAME = 2;
 final int PAUSE = 3;
-
 PFont f;  //font for score
 PImage img;
 Puck ball = new Puck();
@@ -13,15 +12,20 @@ Players P1 = new Players(); //P1 is left
 Players P2 = new Players(); // P2 is right
 Field board = new Field();
 Collision col = new Collision();
+
 void setup() 
 {
-  size(1920, 1080); // size of playing field (0|0) is in top left
+  size(1280, 720); // size of playing field (0|0) is in top left
   surface.setResizable(true);
   frameRate(120); //fps
   f = createFont("Arial",height/10,true); // font for score
-  img = loadImage("../logo/Prong.png");
+  img = loadImage("../logo/ingame.png");
   imageMode(CENTER);
   ball.setup();
+  P1.up = 'o';;
+  P1.down = 'l';;
+  P2.up = 'w';;
+  P2.down = 's';
 }
 
 void draw() 
@@ -50,7 +54,8 @@ void draw()
       //check collision and controls
       ball.bordercollision();
       col.playercollision();
-      col.controll();
+      P1.controll();
+      P2.controll();
         
       // Draw the shape
       ball.display();

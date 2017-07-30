@@ -9,6 +9,8 @@ class Players
   int width_stick = width/60; // width of stick
   int blink = 2;
   boolean impact;
+  char up;
+  char down;
   
   void setup()
   {
@@ -44,6 +46,27 @@ class Players
     xpos_stick = xpos_stick + (xspd_stick * xdir_stick);
     ypos_stick = constrain(ypos_stick + (yspd_stick * ydir_stick),height_stick,height-height_stick); //constrain sets borders
   }
-  
+
+    
+  void controll()
+  {
+    
+    if(!keyPressed)    // if no key, dont move
+      this.ydir_stick=0;
+    if (keyPressed && key == this.up) //if up, move up
+      {
+        this.ydir_stick = -1;
+      }
+    else if (keyPressed && key == this.down) //if down move down
+      {
+        this.ydir_stick = 1;
+      }
+    
+    if (keyPressed && keyCode == RIGHT)
+      delay (150);
+      
+    if (key == 'p')  
+      state = PAUSE;
+  }
 
 }
